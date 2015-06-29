@@ -1,0 +1,32 @@
+<!-- Creacion de la barra de menu y sus opciones a cargarse -->
+
+<nav class="navbar" ng-class="{'navbar-inverse': inverse,'navbar-default': !inverse,'navbar-fixed-top': affixed == 'top','navbar-fixed-bottom': affixed == 'bottom'}" role="navigation">
+	<div class="container-fluid">
+		<div class="navbar-header">
+			<!-- button de navegacion solo para dspositivos pequenios -->
+			<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-menu">
+				<span class="sr-only">Toggle Navigation</span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+			</button>
+			<a href="#/" class="navbar-brand" ng-click="noop()" ng-bind-html="haveBranding()"></a>
+		</div>
+		<!-- barra de navegacion y opciones obtenidad del navbarController.js-->
+		<div class="collapse navbar-collapse" id="navbar-menu">
+			<ul class="nav navbar-nav" ng-if="hasMenus()">
+				<li ng-repeat="menu in menus" ng-class="{true: 'dropdown'}[hasDropdownMenu(menu)]">
+					<a href="{{menu.href}}" ng-if="!hasDropdownMenu(menu)" ng-click="navAction(menu.action)">{{menu.title}}</a>
+					<a ng-if="hasDropdownMenu(menu)" class="dropdown-toggle" data-toggle="dropdown">{{menu.title}} 
+						<b class="caret"></b>
+					</a>
+					<ul ng-if="hasDropdownMenu(menu)" class="dropdown-menu">
+						<li ng-repeat="item in menu.menu" ng-class="{true: 'divider'}[isDivider(item)]">
+							<a href="{{item.href}}" ng-if="!isDivider(item)" ng-click="navAction(item.action)">{{item.title}}</a>
+						</li>
+					</ul>
+				</li>
+			</ul>			
+		</div>
+	</div>
+</nav>

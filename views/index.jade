@@ -1,0 +1,49 @@
+doctype html
+html
+  head
+    meta(charset='UTF-8')
+    title Sistema de Almacences - Distribuidora SRVJ
+    link(rel='stylesheet prefetch', href='css/bootstrap_3.1.1_css_bootstrap.min.css')
+    link(rel='stylesheet', href='css/bootstrap.min.css')
+    link(rel='stylesheet', href='css/style.css')
+    link(rel='stylesheet', href='css/estilos.css')
+  body
+    body(ng-app='mainController', ng-controller='mainDirectiveCtrl')
+      // Here's the "Angled Navbar" directive in use
+      angled-navbar(affixed='affixed', brand='brand', inverse='inverse', menus='menus', navfn='navfn(action)', search='search', searchfn='searchfn()')
+      // Header Titulo
+      section.jumbotron
+        .container.page-header
+          h1.titulo-pagina Distribuidora SRVJ
+      // Contenedor Principal
+      section.main.container-fluid
+        .row(data-ng-view='')
+      // Pie de pagina
+      footer
+        .container.row
+          .col-xs-9.text-center
+            address
+              strong Distribuidora "SRJV
+              br
+              |           Avenida de la Patria, No 600 - 
+              pr
+                | Oruro, Bolivia
+                br
+          .col-xs-3
+            ul.list-inline.text-right
+              li
+                a(href='#') Contact
+              li
+                a(href='#')
+                | Email
+              br
+              abbr(title='Phone') Telefono:
+              |  (123) 456-7890
+    script(src='lib/jquery-2.1.1.min.js')
+    script(src='lib/angular.min.js')
+    script(src='lib/angular-sanitize.min.js')
+    script(src='lib/angular-route.min.js')
+    script(src='lib/jquery.js')
+    script(src='lib/bootstrap.min.js')
+    script(src='controllers/navbar/navbarController.js')
+    script(src='controllers/messageController.js')

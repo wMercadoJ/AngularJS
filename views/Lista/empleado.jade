@@ -1,0 +1,38 @@
+doctype html
+html(lang="en")
+	head
+		title Lista Empleado
+		meta(charset="utf-8")
+		link(href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css" rel="stylesheet")
+		link(href="/css/main.css" rel="stylesheet")
+		link(href='http://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css')
+		link(href='http://fonts.googleapis.com/css?family=Lato:300,400' rel='stylesheet' type='text/css')
+		link(href='/css/animate.css' rel='stylesheet' type='text/css')
+	body
+		h1 Lista de Empleados
+	table(class="table")
+		a(href="/empleado/nuevo") Nuevo Empleado
+		caption Empleados
+		thead
+			tr
+				th id
+				th Nombre
+				th Apellido
+				th Direccion
+				th Telefono
+				th Correo Electronico
+				th Fecha Ingreso
+		tbody
+			each empleado in empleados
+				tr
+					td= empleado.id_empleado
+					td= empleado.nombre
+					td= empleado.apellido
+					td= empleado.direccion
+					td= empleado.telefono
+					td= empleado.email
+					td= empleado.fecha_ingreso
+					td
+						a(href="/empleado/edit/#{empleado.id}") Editar
+						=" - "
+						a(href="") Eliminar

@@ -1,0 +1,37 @@
+doctype html
+html(lang="en")
+	head
+		title Nuevo Empleado
+		meta(charset="utf-8")
+		link(href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css" rel="stylesheet")
+		link(href="/css/main.css" rel="stylesheet")
+		link(href='http://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css')
+		link(href='http://fonts.googleapis.com/css?family=Lato:300,400' rel='stylesheet' type='text/css')
+		link(href='/css/animate.css' rel='stylesheet' type='text/css')
+	body
+		div(class="col-md-5 center-block no-float top-space text-left")
+			h1 Nuevo Empleado
+			form(method="post" action="/empleado" style="margin-top:1.5em;" enctype="multipart/form-data")
+				div(class="form-group")
+					label Nombre
+					input(type="text" name="nombre" placeholder="Nombre del Empleado" class="form-control")
+				div(class="form-group")
+					label Apellido
+					input(type="text" name="apellido" placeholder="Apellido del Empleado" class="form-control")
+				div(class="form-group")
+					label Empleado ID
+					input(type="number" name="idEmpleado" placeholder="ID del Empleado" class="form-control")
+				div(class="form-group")
+					label Direccion
+					input(type="text" name="direccion" placeholder="Direccion del Empleado" class="form-control")
+				div(class="form-group")
+					label Telofono
+					input(type="numbre" name="telefono" placeholder="Telefono" class="form-control")
+				div(class="form-group")
+					label Correo Electronico
+					input(type="email" name="email" placeholder="Correo Electronico" class="form-control")
+				div(class="form-group")
+					label Fecha de Ingreso
+					input(type="text" name="fechaIngreso" placeholder="Fecha de Ingreso" class="form-control")
+				div(class="form-group text-right")
+					input(type="submit" class="btn btn-info" value="Registrar")
