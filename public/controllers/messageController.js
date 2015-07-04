@@ -2,34 +2,79 @@ angular.module('mainController')
 	.controller('inicioCtrl', function ($scope){
 		$scope.message = "Bienvenido al Sistema de Salidas de Productos";
 	});
-
 angular.module('mainController')
-	.controller('administrarUsuariosCtrl', function ($scope){
-		$scope.message = "Administrar Usuarios";
+	.controller('listaEmpleadoCtrl', function ($scope){
+		$scope.message = "Empleados existentes en Sistema";
+	});
+angular.module('mainController')
+	.controller('nuevoEmpleadoCtrl', function ($scope){
+		$scope.message = "Crear nuevo empleado:";
+	});
+angular.module('mainController')
+	.controller('listaUserCtrl', function ($scope){
+		$scope.message = "Usuarios existentes en Sistema";
+	});
+angular.module('mainController')
+	.controller('nuevoUserCtrl', function ($scope){
+		$scope.message = "Crear nuevo Usuario:";
+	});
+angular.module('mainController')
+	.controller('planillaSalPendACtrl', function ($scope){
+		$scope.message = "Planillas Pendientes del dia:";
+	});
+angular.module('mainController')
+	.controller('planillaSalACtrl', function ($scope){
+		$scope.message = "Planillas Revisadas del dia:";
+	});
+angular.module('mainController')
+	.controller('planillaLiqPendCtrl', function ($scope){
+		$scope.message = "Planillas de Liquidacion Pendientes:";
 	});
 
 angular.module('mainController')
-	.controller('administrarRolesCtrl', function ($scope){
-		$scope.message = "Administrar Roles";
+	.controller('planillaLiqCtrl', function ($scope){
+		$scope.message = "Planilla de Liquidacion del dia";
 	});
 
 angular.module('mainController')
-	.controller('planillaLiquidacionCtrl', function ($scope){
-		$scope.message = "Planilla de Liquidacion";
-	});
-
-angular.module('mainController')
-	.controller('planillaSalidaAdCtrl', function ($scope){
-		$scope.message = "PLanilla de Salidas Administrador";
-	});
-
-angular.module('mainController')
-	.controller('planillaSalidaAlCtrl', function ($scope){
-		$scope.message = "Lista de Planilla de Salidas Almacenes";
+	.controller('reporteLiqEmpCtrl', function ($scope){
+		$scope.message = "Reporte de Planillas de Liquidacion por Empleado";
 	});
 angular.module('mainController')
-	.controller('addEditPlanillaCAlCtrl', function ($scope){
-		$scope.message = "Agregar Editar Planilla de Salidas de Carros";
+	.controller('reporteLiqFCtrl', function ($scope){
+		$scope.message = "Reporte de Planillas de Liquidacion por fecha";
+	});
+angular.module('mainController')
+	.controller('reporteSalProdFCtrl', function ($scope){
+		$scope.message = "Reporte de Planillas de Salida por fecha";
+	});
+angular.module('mainController')
+	.controller('reporteSalProdECtrl', function ($scope){
+		$scope.message = "Reporte de Planillas de Salida por Empleado";
+	});
+angular.module('mainController')
+	.controller('listaEmpAdCtrl', function ($scope){
+		$scope.message = "Lista de Empleados";
+	});
+angular.module('mainController')
+	.controller('listaCarroCtrl', function ($scope){
+		$scope.message = "Lista de Carros";
+	});
+angular.module('mainController')
+	.controller('planillaDiaAlCAlCtrl', function ($scope){
+		$scope.message = "Lista de Planilla de Salidas Almacenes del dia";
+	});
+angular.module('mainController')
+	.controller('nuevaPlanillaAlCtrl', function ($scope){
+		$scope.message = "Crear Nueva Planilla";
+	});
+angular.module('mainController')
+	.controller('reporteProductoGralCtrl', function ($scope){
+		$scope.message = "Reporte Productos en gral";
+	});
+angular.module('mainController')
+	.controller('reporteProductoExistAlCtrl', function ($scope){
+		$scope.message = "Reporte Productos fisicos existentes en alamcenes";
 	});
 
 angular.module('mainController')

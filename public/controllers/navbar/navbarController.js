@@ -1,5 +1,4 @@
 /*Controlador para el menu y ruteo de paginas de navegacion*/
-
 angular.module('mainController',['ngSanitize','ngRoute'])
 
 .controller('mainDirectiveCtrl',function($scope){
@@ -12,38 +11,45 @@ angular.module('mainController',['ngSanitize','ngRoute'])
   };
   $scope.brand = "<span class='glyphicon glyphicon-home'></span> Inicio";
   $scope.inverse = true;
-  $scope.role = "Almacenes";
+  $scope.role = "Admin";
   if($scope.role == "Admin"){
     $scope.menus = [{
-        title : "Planilla Salida",
-        action : "planillaSalidaAd",
-        href: "#/planillaSalidaAd"
+        title : "Planillas de Salida",
+        action : "planillaSalPendA",
+        href: "#/planillaSalPendA"
       },
       {
-        title : "Liquidacion",
-        action : "liquidacion",
-        href: "#/planillaLiquidacion"
+        title : "Planillas de Liquidacion",
+        action : "planillaLiqPend",
+        href: "#/planillaLiqPend"
       },
       {
         title : "Reportes",
         menu : [
           {
-            title : "Reporte A",
-            action : "reporte.A",
-            href: "#/reporteA"
-          },
-          {
-            title : "Reporte B",
-            action : "reporte.B"
+            title : "Reporte Planilla Liquidacion",
+            action : "reporteLiqFecha",
+            href: "#/reporteLiqFecha"
           },
           {
             divider: true
           },
           {
-            title : "Reporte C",
-            action : "reporte.C"
+            title : "Reporte Planilla Salida Productos",
+            action : "reporteSalProdF",
+            href: "#/reporteSalProdF"
           }
         ]
+      },
+      {
+        title : "Empleados",
+        action : "listaEmpAd",
+        href: "#/listaEmpAd"
+      },
+      {
+        title : "Carros Distribuidores",
+        action : "listaCarro",
+        href: "#/listaCarro"
       }
     ]; // end menus
   }
@@ -51,53 +57,28 @@ angular.module('mainController',['ngSanitize','ngRoute'])
 
   if($scope.role == "Almacenes"){
     $scope.menus = [{
-        title : "Planilla Salida",
-        action : "planillaSalidaAl",
-        href: "#/planillaSalidaAl"
+        title : "Planillas de Salida",
+        action : "planillaDiaAl",
+        href: "#/planillaDiaAl"
       },
       {
         title : "Reportes",
-        menu : [
-          {
-            title : "Reporte A",
-            action : "item.one"
-          },
-          {
-            title : "Reporte B",
-            action : "item.two"
-          },
-          {
-            divider: true
-          },
-          {
-            title : "Reporte C",
-            action : "item.three"
-          }
-        ]
+        action : "reporteProductoGralAl",
+        href: "#/reporteProductoGral"
       }
     ]; // end menus
   }
 
-  if($scope.role == "SA"){
+  if($scope.role == "AdministradorCuentas"){
     $scope.menus = [{
-        title : "Reportes",
-        menu : [
-          {
-            title : "Reporte A",
-            action : "item.one"
-          },
-          {
-            title : "Reporte B",
-            action : "item.two"
-          },
-          {
-            divider: true
-          },
-          {
-            title : "Reporte C",
-            action : "item.three"
-          }
-        ]
+      title : "Administrar Usuarios",
+      action : "listaUser",
+      href: "#/listaUser"
+    },
+      {
+        title : "Administrar Empleados",
+        action : "listaEmpleado",
+        href: "#/listaEmpleado"
       }
     ]; // end menus
   }
@@ -123,63 +104,7 @@ angular.module('mainController',['ngSanitize','ngRoute'])
   }; // end toggleAffixed
 }) // end mainDirectiveCtrl
 
-.controller('carrosController',function($scope, $http){
-  $scope.newCarro = {};
-  $scope.carros = {};
-  $scope.selected = false;
-
-  // Obtenemos todos los datos de la base de datos
-  $http.get('/api/carro').success(function(data) {
-    $scope.carros = data;
-  })
-      .error(function(data) {
-        console.log('Error: ' + data);
-      });
-
-  $scope.registrarCarro = function() {
-    $http.post('/api/carro', $scope.newCarro)
-        .success(function(data) {
-          $scope.newCarro = {}; // Borramos los datos del formulario
-          $scope.carros = data;
-        })
-        .error(function(data) {
-          console.log('Error: ' + data);
-        });
-  };
-
-  // Función para editar los datos de una persona
-  $scope.modificarCarro = function(newCarro) {
-    $http.put('/api/carro/' + $scope.newCarro._id, $scope.newCarro)
-        .success(function(data) {
-          $scope.newCarro = {}; // Borramos los datos del formulario
-          $scope.carros = data;
-          $scope.selected = false;
-        })
-        .error(function(data) {
-          console.log('Error: ' + data);
-        });
-  };
-
-  // Función que borra un objeto persona conocido su id
-  $scope.borrarCarro = function(newCarro) {
-    $http.delete('/api/carro/' + $scope.newCarro._id)
-        .success(function(data) {
-          $scope.newCarro = {};
-          $scope.carros = data;
-          $scope.selected = false;
-        })
-        .error(function(data) {
-          console.log('Error: ' + data);
-        });
-  };
-
-  // Función para coger el objeto seleccionado en la tabla
-  $scope.selectCarro = function(carro) {
-    $scope.newCarro = carro;
-    $scope.selected = true;
-    console.log($scope.newCarro, $scope.selected);
-  };
-})
+/*Aniadido codigo pa carros*/
 
 /**
  * Angled Navbar Directive
@@ -257,19 +182,78 @@ angular.module('mainController',['ngSanitize','ngRoute'])
         templateUrl : 'pages/home.html',
         controller  : 'inicioCtrl',
     })  
-    .when('/planillaSalidaAl', {	
-      templateUrl: 'pages/almacenes/planillaSalidaAl.html',
-      controller: 'planillaSalidaAlCtrl',
+    .when('/planillaDiaAl', {
+      templateUrl: 'pages/almacenes/planillaDiaAl.html',
+      controller: 'planillaDiaAlCAlCtrl',
     })   
-    .when('/addEditPlanillaC', {  
-      templateUrl: 'pages/almacenes/addEditPlanillaC.html',
-      controller: 'addEditPlanillaCAllCtrl',
-    })   
-    .when('/planillaLiquidacion', {
-      templateUrl: 'pages/planillaLiquidacion/planillaLiquidacion.html',
-      controller: 'planillaLiquidacionCtrl',
+    .when('/nuevaPlanillaAl', {
+      templateUrl: 'pages/almacenes/nuevaPlanillaAl.html',
+      controller: 'nuevaPlanillaAlCtrl',
     })
-
+    .when('/reporteProductoGral', {
+      templateUrl: 'pages/almacenes/reporteProdGral.html',
+      controller: 'reporteProductoGralCtrl',
+    })
+    .when('/reporteProductoExistAl', {
+      templateUrl: 'pages/almacenes/reporteProdAl.html',
+      controller: 'reporteProductoExistAlCtrl',
+    })
+    .when('/listaEmpleado', {
+      templateUrl: 'pages/administradorCuentas/listaEmp.html',
+      controller: 'listaEmpleadoCtrl',
+    })
+    .when('/nuevoEmpleado', {
+      templateUrl: 'pages/administradorCuentas/nuevoEmp.html',
+      controller: 'nuevoEmpleadoCtrl',
+    })
+    .when('/listaUser', {
+      templateUrl: 'pages/administradorCuentas/listaUser.html',
+      controller: 'listaUserCtrl',
+    })
+    .when('/nuevoUser', {
+      templateUrl: 'pages/administradorCuentas/nuevoUser.html',
+      controller: 'nuevoUserCtrl',
+    })
+    .when('/planillaSalPendA', {
+      templateUrl: 'pages/administrador/planillaSalPendA.html',
+      controller: 'planillaSalPendACtrl',
+    })
+    .when('/planillaSalA', {
+      templateUrl: 'pages/administrador/planillaSalA.html',
+      controller: 'planillaSalACtrl',
+    })
+    .when('/planillaLiqPend', {
+      templateUrl: 'pages/administrador/planillaLiqPend.html',
+      controller: 'planillaLiqPendCtrl',
+    })
+    .when('/planillaLiq', {
+      templateUrl: 'pages/administrador/planillaLiq.html',
+      controller: 'planillaLiqCtrl',
+    })
+    .when('/reporteLiqFecha', {
+      templateUrl: 'pages/administrador/reporteLiqF.html',
+      controller: 'reporteLiqFCtrl',
+    })
+    .when('/reporteLiqEmp', {
+      templateUrl: 'pages/administrador/reporteLiqEmp.html',
+      controller: 'reporteLiqEmpCtrl',
+    })
+    .when('/reporteSalProdF', {
+      templateUrl: 'pages/administrador/reporteSalProdF.html',
+      controller: 'reporteSalProdFCtrl',
+    })
+    .when('/reporteSalProdE', {
+      templateUrl: 'pages/administrador/reporteSalProdE.html',
+      controller: 'reporteSalProdECtrl',
+    })
+    .when('/listaEmpAd', {
+      templateUrl: 'pages/administrador/listaEmpAd.html',
+      controller: 'listaEmpAdCtrl',
+    })
+    .when('/listaCarro', {
+      templateUrl: 'pages/administrador/listaCarro.html',
+      controller: 'listaCarroCtrl',
+    })
 
 }])
 

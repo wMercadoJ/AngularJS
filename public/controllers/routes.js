@@ -1,19 +1,19 @@
-var Carro = require('./modelo/carro');
+var Persona = require('./modelo/carro');
 var Controller = require ('./controller');
 
 module.exports = function(app) {
 
 	// devolver todos los Personas
-	app.get('/api/carro', Controller.getCarro);
+	app.get('/api/persona', Controller.getPersona);
 	// Crear una nueva Persona
-	app.post('/api/carro', Controller.setCarro);
+	app.post('/api/persona', Controller.setPersona);
 	// Modificar los datos de una Persona
-	app.put('/api/carro/:carro_id', Controller.updateCarro);
+	app.put('/api/persona/:persona_id', Controller.updatePersona);
 	// Borrar una Persona
-	app.delete('/api/carro/:carro_id', Controller.removeCarro);
+	app.delete('/api/persona/:persona_id', Controller.removePersona);
 
 	// application -------------------------------------------------------------
 	app.get('*', function(req, res) {
-		res.sendfile('./public/index.html'); // Carga única de la vista
+		res.sendfile('./angular/index.html'); // Carga única de la vista
 	});
 };
