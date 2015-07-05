@@ -1,0 +1,97 @@
+<div ng-controller="planillaAlCtrl">
+    <!-- Panel izquierdo -->
+    <aside class="col-md-2 fidden-xs hidden-sm post clearfix">
+        <h4>Opciones</h4>
+
+        <div class="list-group">
+            <a href="#/planillaDiaAl" class="list-group-item">Planillas del Dia Recientes</a>
+            <a href="#/nuevaPlanillaAl" class="list-group-item active">Nueva Planilla</a>
+        </div>
+    </aside>
+    <!-- Contenedor principal derecho -->
+    <section class="posts col-md-10">
+        <article class="post clearfix">
+            <h3 class="post-title">
+                {{message}}          
+            </h3>           
+        </article>
+        <h4>
+            {{datoslabel}}          
+        </h4>  
+        <form class="form-horizontal" name="formPlanilla">
+            <div class="form-group">
+                <label for="selectChofer" class="col-sm-2 control-label">Fecha Pedido de carro</label>
+                <div class="col-sm-2">
+                    <pre>{{fecha}}</pre>                    
+                </div>          
+                <button type="submit" class="btn btn-primary" ng-click="addProducto()">
+                    Añadir Producto
+                </button>       
+            </div>
+            <div class="form-group">     
+                <label for="selectChofer" class="col-sm-2 control-label">Nombre de Chofer</label>
+                <div class="col-sm-2">
+                    <pre>{{chofer}}</pre>                                     
+                </div>                 
+                               
+                <button type="submit" class="btn btn-danger" ng-click="cambiarPedido()">
+                    Cambiar Pedido
+                </button>                          
+            </div>
+            <div class="form-group">
+                <label for="selectChofer" class="col-sm-2 control-label">Placa Carro</label>
+                <div class="col-sm-2">
+                    <pre>{{placa}}</pre>                    
+                </div>               
+            </div>
+        </form>
+
+        <form editable-form name="tableform" onaftersave="saveTable()" oncancel="cancel()">
+
+    <!-- table -->
+    <table class="table table-bordered table-hover table-condensed">
+      <tr style="font-weight: bold">
+        <td style="width:40%">Name</td>
+        <td style="width:30%">Status</td>
+        <td style="width:30%">Group</td>
+        <td style="width:30%"><span ng-show="tableform.$visible">Action</span></td>
+      </tr>
+      <tr ng-repeat="user in users | filter:filterUser">
+        <td>
+          <!-- editable username (text with validation) -->
+          <span editable-text="user.name" e-form="tableform" onbeforesave="checkName($data, user.id)">
+            {{ user.name || 'empty' }}
+          </span>
+        </td>
+        <td>
+          <!-- editable status (select-local) -->
+          <span editable-select="user.status" e-form="tableform" e-ng-options="s.value as s.text for s in statuses">
+            {{ showStatus(user) }}
+          </span>
+        </td>
+        <td>
+          <!-- editable group (select-remote) -->
+          <span editable-select="user.group" e-form="tableform" onshow="loadGroups()" e-ng-options="g.id as g.text for g in groups">
+            {{ showGroup(user) }}
+          </span>
+        </td>
+        <td><button type="button" ng-show="tableform.$visible" ng-click="deleteUser(user.id)" class="btn btn-danger pull-right">Del</button></td>
+      </tr>
+    </table>
+
+    <!-- buttons -->
+    <div class="btn-edit">
+      <button type="button" class="btn btn-default" ng-show="!tableform.$visible" ng-click="tableform.$show()">
+        edit
+      </button>
+    </div>
+    <div class="btn-form" ng-show="tableform.$visible">
+      <button type="button" ng-disabled="tableform.$waiting" ng-click="addUser()" class="btn btn-default pull-right">add row</button>
+      <button type="submit" ng-disabled="tableform.$waiting" class="btn btn-primary">save</button>
+      <button type="button" ng-disabled="tableform.$waiting" ng-click="tableform.$cancel()" class="btn btn-default">cancel</button>
+    </div> 
+    
+  </form>
+
+    </section>
+</div>
