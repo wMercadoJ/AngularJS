@@ -3,7 +3,7 @@ angular.module('mainApp.navBar', ['ngSanitize', 'ngRoute'])
 
     .controller('navBarCtrl', function ($scope) {
         //=== Variables ===//
-
+        $scope.role = "Almacenes";
         $scope.affixed = 'top';
         $scope.search = {
             show: true,
@@ -125,7 +125,7 @@ angular.module('mainApp.navBar', ['ngSanitize', 'ngRoute'])
             templateUrl: 'nav/navBar.html',
             controller: function ($scope, $element, $attrs) {
                 //=== Scope/Attributes Defaults ===//
-
+                $scope.role = "Almacenes";
                 $scope.defaults = {
                     brand: '<span class="glyphicon glyphicon-certificate"></span>',
                     menus: [],

@@ -1,81 +1,87 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <meta charset="UTF-8">
-    <title>Sistema de Almacences - Distribuidora SRVJ</title>
-    <link rel="stylesheet prefetch" href="css/bootstrap_3.1.1_css_bootstrap.min.css">
-    <link rel="stylesheet" href="./css/bootstrap.min.css">
-    <link rel="stylesheet" href="./css/style.css">
-    <link rel="stylesheet" href="./css/estilos.css">
-    <link rel="stylesheet" href="./css/xeditable.css">
-</head>
-<body>
-<body ng-app="mainApp">
-<!-- Here's the "Angled Navbar" directive in use-->
-<div ng-controller="navBarCtrl">
-    <angled-navbar affixed="affixed" brand="brand" inverse="inverse" menus="menus"></angled-navbar>
-</div>
-<!-- Header Titulo-->
-<section class="jumbotron">
-    <div class="container page-header">
-        <h1 class="titulo-pagina">Distribuidora SRVJ</h1>
+    <!DOCTYPE html>
+    <html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Sistema de Almacences - Distribuidora SRVJ</title>
+        <link rel="stylesheet prefetch" href="css/bootstrap_3.1.1_css_bootstrap.min.css">
+        <link rel="stylesheet" href="./css/bootstrap.min.css">
+        <link rel="stylesheet" href="./css/style.css">
+        <link rel="stylesheet" href="./css/estilos.css">
+        <link rel="stylesheet" href="./css/xeditable.css">
+    </head>
+    <body>
+    <body ng-app="mainApp">
+    <!-- Here's the "Angled Navbar" directive in use-->
+    <div ng-controller="navBarCtrl">
+        <angled-navbar affixed="affixed" brand="brand" inverse="inverse" menus="menus"></angled-navbar>
     </div>
-</section>
-<!-- Contenedor Principal-->
-<section class="main container-fluid">
-    <div data-ng-view="" class="row"></div>
-</section>
-<!-- Pie de pagina-->
-<footer>
-    <div class="container row">
-        <div class="col-xs-9 text-center">
-            <address><strong>Distribuidora "SRJV</strong><br> Avenida de la Patria, No 600 -
-                <pr>Oruro, Bolivia<br></pr>
-            </address>
+    <!-- Header Titulo-->
+    <section class="jumbotron">
+        <div class="container page-header">
+            <h1 class="titulo-pagina">Distribuidora SRVJ</h1>
         </div>
-        <div class="col-xs-3">
-            <ul class="list-inline text-right">
-                <li><a href="#">Contact</a></li>
-                <li><a href="#"></a>Email</li>
-                <br><abbr title="Phone">Telefono:</abbr> (123) 456-7890
-            </ul>
+    </section>
+    <!-- Contenedor Principal-->
+    <section class="main container-fluid">
+        <div data-ng-view="" class="row"></div>
+    </section>
+    <!-- Pie de pagina-->
+    <footer>
+        <div class="container row">
+            <div class="col-xs-9 text-center">
+                <address><strong>Distribuidora "SRJV</strong><br> Avenida de la Patria, No 600 -
+                    pr>Oruro, Bolivia<br></pr>
+                </address>
+            </div>
+            <div class="col-xs-3">
+                <ul class="list-inline text-right">
+                    <li><a href="#">Contact</a></li>
+                    <li><a href="#"></a>Email</li>
+                    <br><abbr title="Phone">Telefono:</abbr> (123) 456-7890
+                </ul>
+            </div>
         </div>
-    </div>
-</footer>
-</body>
-<script src="lib/jquery-2.1.1.min.js"></script>
-<script src="lib/angular.min.js"></script>
-<script src="lib/angular-sanitize.min.js"></script>
-<script src="lib/angular-route.min.js"></script>
-<script src="lib/jquery.js"></script>
-<script src="lib/bootstrap.min.js"></script>
-<script src="lib/xeditable.js"></script>
-<script src="lib/xeditable.min.js"></script>
-<script src="controllers/navBar/navBarCtrl.js"></script>
-<script src="controllers/inicioCtrl.js"></script>
-<script src="controllers/listaCarroCtrl.js"></script>
-<script src="controllers/listaEmpAdCtrl.js"></script>
-<script src="controllers/listaEmpleadoCtrl.js"></script>
-<script src="controllers/listaUserCtrl.js"></script>
-<script src="controllers/nuevaPlanillaAlCtrl.js"></script>
-<script src="controllers/nuevoEmpleadoCtrl.js"></script>
-<script src="controllers/nuevoUserCtrl.js"></script>
-<script src="controllers/planillaDiaAlCAlCtrl.js"></script>
-<script src="controllers/planillaLiqCtrl.js"></script>
-<script src="controllers/planillaLiqPendCtrl.js"></script>
-<script src="controllers/planillaSalACtrl.js"></script>
-<script src="controllers/planillaSalPendACtrl.js"></script>
-<script src="controllers/registroProductosCtrl.js"></script>
-<script src="controllers/reporteLiqEmpCtrl.js"></script>
-<script src="controllers/reporteLiqFCtrl.js"></script>
-<script src="controllers/reporteProductoExistAlCtrl.js"></script>
-<script src="controllers/reporteProductoGralCtrl.js"></script>
-<script src="controllers/reportes1Ctrl.js"></script>
-<script src="controllers/reportes2Ctrl.js"></script>
-<script src="controllers/reporteSalProdECtrl.js"></script>
-<script src="controllers/reporteSalProdFCtrl.js"></script>
-<script src="controllers/reportesCtrl.js"></script>
-<script src="controllers/app.js"></script>
+    </footer>
+    </body>
+    <script src="lib/jquery-2.1.1.min.js"></script>
+    <script src="lib/angular.min.js"></script>
+    <script src="lib/angular-sanitize.min.js"></script>
+    <script src="lib/angular-route.min.js"></script>
+    <script src="lib/angular-touch.min.js"></script>
+    <script src="lib/angular-animate.min.js"></script>
+    <script src="lib/lodash.min.js"></script>   
+    <script src="lib/highlight.js"></script>   
+    <script src="lib/angular-highlightjs.min.js"></script>     
+    <script src="lib/jquery.js"></script>
+    <script src="lib/bootstrap.min.js"></script>
+    <script src="lib/xeditable.min.js"></script>
+    <script src="lib/ui-bootstrap-tpls-0.13.0.min.js"></script>
+    <script src="lib/angularjs-dropdown-multiselect.min.js"></script>
+    <script src="controllers/navBar/navBarCtrl.js"></script>
+    <script src="controllers/inicioCtrl.js"></script>
+    <script src="controllers/listaCarroCtrl.js"></script>
+    <script src="controllers/listaEmpAdCtrl.js"></script>
+    <script src="controllers/listaEmpleadoCtrl.js"></script>
+    <script src="controllers/listaUserCtrl.js"></script>
+    <script src="controllers/nuevaPlanillaAlCtrl.js"></script>
+    <script src="controllers/nuevoEmpleadoCtrl.js"></script>
+    <script src="controllers/nuevoUserCtrl.js"></script>
+    <script src="controllers/planillaDiaAlCAlCtrl.js"></script>
+    <script src="controllers/planillaLiqCtrl.js"></script>
+    <script src="controllers/planillaLiqPendCtrl.js"></script>
+    <script src="controllers/planillaSalACtrl.js"></script>
+    <script src="controllers/planillaSalPendACtrl.js"></script>
+    <script src="controllers/registroProductosCtrl.js"></script>
+    <script src="controllers/reporteLiqEmpCtrl.js"></script>
+    <script src="controllers/reporteLiqFCtrl.js"></script>
+    <script src="controllers/reporteProductoExistAlCtrl.js"></script>
+    <script src="controllers/reporteProductoGralCtrl.js"></script>
+    <script src="controllers/reportes1Ctrl.js"></script>
+    <script src="controllers/reportes2Ctrl.js"></script>
+    <script src="controllers/reporteSalProdECtrl.js"></script>
+    <script src="controllers/reporteSalProdFCtrl.js"></script>
+    <script src="controllers/reportesCtrl.js"></script>
+    <script src="controllers/app.js"></script>
 
-</body>
-</html>
+    </body>
+    </html>

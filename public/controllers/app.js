@@ -28,7 +28,9 @@ angular.module('mainApp', [
     'mainApp.reporteSalProdE',
     'mainApp.reporteSalProdF',
     'mainApp.reportes',
-    'xeditable'
+    'xeditable',
+    'angularjs-dropdown-multiselect',
+    'ui.bootstrap'
 ])
 
     .config(['$routeProvider', function ($routeProvider) {
