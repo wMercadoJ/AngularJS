@@ -1,4 +1,4 @@
-<div ng-controller="carrosController">
+<div>
 	<!-- Panel izquierdo -->
 	<aside class="col-md-2 fidden-xs hidden-sm post clearfix">
 		<h4>Opciones</h4>
@@ -20,56 +20,5 @@
 				Lista de planillas de Salidas recientemente
 			</p>
 		</article>
-		<div class="container">
-
-			<div class="jumbotron text-center" ng-prueba>
-				<h1>Nro de Registros: <span class="label label-success">{{ carros.length }}</span></h1>
-			</div>
-
-			<!--<select ng-model="selected" ng-options="carro.placa as carro.chofer for carro in carros" ></select>-->
-
-			<div class="row">
-
-				<div class="col-sm-6 col-sm-offset-1">
-					<table class="table table-striped">
-						<tr class="info">
-							<td>Placa</td>
-							<td>Modelo</td>
-							<td>Chofer</td>
-							<td>Estado</td>
-							<td>Modificacion_Usuario</td>
-						</tr>
-						<tr ng-repeat="carro in carros" ng-click="selectCarro(carro)">
-							<td>{{ carro.placa }}</td>
-							<td>{{ carro.modelo }}</td>
-							<td>{{ carro.chofer }}</td>
-							<td>{{ carro.estado }}</td>
-							<td>{{ carro.modificacion_usuario }}</td>
-						</tr>
-					</table>
-				</div>
-				<div class="col-sm-4 col-sm-offset-1 text-center">
-					<form name="myForm">
-						<div class="form-group">
-							<input type="text" class="form-control input-lg text-center" placeholder="Placa" ng-model="newCarro.placa" required>
-							<br>
-							<input type="text" class="form-control input-lg text-center" placeholder="Modelo" ng-model="newCarro.modelo" required>
-							<br>
-							<input type="text" class="form-control input-lg text-center" placeholder="Chofer" ng-model="newCarro.chofer" required>
-							<br>
-							<input type="text" class="form-control input-lg text-center" placeholder="Estado" ng-model="newCarro.estado" >
-							<br>
-							<input type="text" class="form-control input-lg text-center" placeholder="Modificacion_Usuario" ng-model="newCarro.modificacion_usuario" required>
-						</div>
-
-						<!-- Acciones que podemos realizar en el formulario -->
-						<button type="submit" class="btn btn-success btn-lg" ng-click="registrarCarro()" ng-disabled="myForm.$invalid || selected">Registrar</button>
-						<button type="submit" class="btn btn-warning btn-lg" ng-click="modificarCarro(newCarro)" ng-disabled="!newCarro.placa || !newCarro.modelo || !newCarro.chofer || !newCarro.estado || !newCarro.modificacion_usuario || !selected">Modificar</button>
-						<button type="submit" class="btn btn-danger btn-lg" ng-click="borrarCarro(newCarro)" ng-disabled="!newCarro.placa || !newCarro.modelo || !newCarro.chofer || !newCarro.estado || !newCarro.modificacion_usuario || !selected">Borrar</button>
-					</form>
-				</div>
-			</div>
-
-		</div>
 	</section>
 </div>

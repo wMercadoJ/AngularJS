@@ -3,7 +3,7 @@ angular.module('mainApp.navBar', ['ngSanitize', 'ngRoute'])
 
     .controller('navBarCtrl', function ($scope) {
         //=== Variables ===//
-        $scope.role = "Almacenes";
+        $scope.role = "Admin";
         $scope.affixed = 'top';
         $scope.search = {
             show: true,

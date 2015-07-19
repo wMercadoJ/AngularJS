@@ -5,7 +5,7 @@
         </div>
         <div class="modal-body">
             <div class="span5 fill" style="height: 230px;">
-                <div class="col-md-8 col-md-offset-4" ng-dropdown-multiselect="" options="example9data"
+                <div class="col-md-8 col-md-offset-4" ng-dropdown-multiselect="" options='example9data'
                      selected-model="example9model" extra-settings="example9settings"
                      translation-texts="example9customTexts"></div>
             </div>
@@ -41,7 +41,8 @@
                 <label class="col-sm-2 control-label">Fecha Pedido de carro</label>
 
                 <div class="col-sm-2">
-                    <pre>{{fecha}}</pre>
+                    <pre>{{fecha | date: "dd/MM/yyyy"}}</pre>
+
                 </div>
                 <button type="submit" class="btn btn-primary" ng-click="addProducto()">
                     Añadir Producto
@@ -51,7 +52,7 @@
                 <label class="col-sm-2 control-label">Nombre de Chofer</label>
 
                 <div class="col-sm-2">
-                    <pre>{{chofer}}</pre>
+                    <pre>{{chofer.chofer}}</pre>
                 </div>
 
                 <button type="submit" class="btn btn-danger" ng-click="cambiarPedido()">
@@ -62,7 +63,7 @@
                 <label class="col-sm-2 control-label">Placa Carro</label>
 
                 <div class="col-sm-2">
-                    <pre>{{placa}}</pre>
+                    <pre>{{chofer.placa}}</pre>
                 </div>
             </div>
         </form>
@@ -88,8 +89,8 @@
                     <td style="width:15%">Producto</td>
                     <td style="width:10%">Precio</td>
                     <td style="width:10%">Unidad Conv.</td>
-                    <td style="width:10%">Q. Paquetes</td>
-                    <td style="width:10%">Q. Cajas</td>
+                    <td style="width:10%">Cantidad</td>
+                    <td style="width:10%">Tipo Paquetes</td>
                     <td style="width:10%">Total</td>
                     <td style="width:10%">Action</td>
                 </tr>
@@ -124,9 +125,11 @@
                     </td>
                     <td>
                         <!-- editable username (text with validation) -->
-                        <span editable-number="user.cajas" e-min="0">
-                            {{ user.cajas || 0 }}
-                        </span>
+                        <a href="#" editable-radiolist="user.status" e-ng-options="s.value as s.text for s in statuses">
+                            {{ showStatus(user) }}
+                        </a>
+
+
                     </td>
                     <td>
                         <!-- editable username (text with validation) -->

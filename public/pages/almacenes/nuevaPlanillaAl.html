@@ -26,7 +26,8 @@
 
                 <div class="col-sm-2">
                     <select id="selectChofer" class="form-control" ng-model="carroSelected"
-                            ng-options="carro for carro in carros" required></select>
+                            ng-options='(carro.placa + " - " + carro.chofer) for carro in carros' required></select>
+
                 </div>
 
             </div>

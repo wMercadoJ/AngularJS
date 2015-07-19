@@ -1,4 +1,4 @@
-<div>
+<div ng-controller="registroProductosCtrl">
     <!-- Panel izquierdo -->
     <aside class="col-md-2 fidden-xs hidden-sm post clearfix">
         <h4>Opciones</h4>
@@ -19,4 +19,66 @@
             </p>
         </article>
     </section>
+    <div class="container">
+
+        <div class="text-center" ng-prueba>
+            <h1>Nro de Registros: <span class="label label-success">{{ productos.length }}</span></h1>
+        </div>
+
+        <div class="row">
+
+            <div class="col-sm-6 col-sm-offset-1">
+                <table class="table table-striped">
+                    <tr class="info">
+                        <td>Codigo</td>
+                        <td>Nombre</td>
+                        <td>Descripcion</td>
+                        <td>Precio</td>
+                        <td>Cantidad</td>
+                    </tr>
+                    <tr ng-repeat="producto in productos" ng-click="selectProducto(producto)">
+                        <td>{{ producto.codigo }}</td>
+                        <td>{{ producto.nombre }}</td>
+                        <td>{{ producto.descripcion }}</td>
+                        <td>{{ producto.precio }}</td>
+                        <td>{{ producto.cantidad }}</td>
+                    </tr>
+                </table>
+            </div>
+            <div class="col-sm-4 col-sm-offset-1 text-center">
+                <form name="myForm">
+                    <div class="form-group">
+                        <input type="text" class="form-control input-lg text-center" placeholder="Codigo"
+                               ng-model="newProducto.codigo" required>
+                        <br>
+                        <input type="text" class="form-control input-lg text-center" placeholder="Nombre"
+                               ng-model="newProducto.nombre" required>
+                        <br>
+                        <input type="text" class="form-control input-lg text-center" placeholder="Descripcion"
+                               ng-model="newProducto.descripcion" required>
+                        <br>
+                        <input type="text" class="form-control input-lg text-center" placeholder="Precio"
+                               ng-model="newProducto.precio">
+                        <br>
+                        <input type="text" class="form-control input-lg text-center"placeholder="Cantidad"
+                               ng-model="newProducto.cantidad" required>
+                    </div>
+
+                    <!-- Acciones que podemos realizar en el formulario -->
+                    <button type="submit" class="btn btn-success btn-lg" ng-click="registrarProducto()"
+                            ng-disabled="myForm.$invalid || selected">Registrar
+                    </button>
+                    <button type="submit" class="btn btn-warning btn-lg" ng-click="modificarProducto(newProducto)"
+                            ng-disabled="!newProducto.codigo || !newProducto.nombre || !newProducto.descripcion || !newProducto.precio || !newProducto.cantidad || !selected">
+                        Modificar
+                    </button>
+                    <button type="submit" class="btn btn-danger btn-lg" ng-click="borrarProducto(newProducto)"
+                            ng-disabled="!newProducto.codigo || !newProducto.nombre || !newProducto.descripcion || !newProducto.precio || !newProducto.cantidad || !selected">
+                        Borrar
+                    </button>
+                </form>
+            </div>
+        </div>
+
+    </div>
 </div>

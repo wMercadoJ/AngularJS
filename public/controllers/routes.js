@@ -1,19 +1,26 @@
-var Persona = require('./modelo/carro');
-var Controller = require('./controller');
+var Carro = require('./modelo/modeloCarro');
+var Producto = require('./modelo/modeloProducto');
+var CarroApi = require ('./restAPI/schemaRestAPI');
 
-module.exports = function (app) {
+module.exports = function(restApi) {
 
-    // devolver todos los Personas
-    app.get('/api/persona', Controller.getPersona);
-    // Crear una nueva Persona
-    app.post('/api/persona', Controller.setPersona);
-    // Modificar los datos de una Persona
-    app.put('/api/persona/:persona_id', Controller.updatePersona);
-    // Borrar una Persona
-    app.delete('/api/persona/:persona_id', Controller.removePersona);
+    // devolver todos los Carros
+    restApi.get('/api/carro', CarroApi.getCarros);
+    // Crear una nueva Carro
+    restApi.post('/api/carro', CarroApi.setCarro);
+    // Modificar los datos de una Carro
+    restApi.put('/api/carro/:carro_id', CarroApi.updateCarro);
+    // Borrar una Carro
+    restApi.delete('/api/carro/:carro_id', CarroApi.removeCarro);
 
-    // application -------------------------------------------------------------
-    app.get('*', function (req, res) {
-        res.sendfile('./angular/index.html'); // Carga única de la vista
-    });
-};
+
+    // devolver todos los Productos
+    restApi.get('/api/producto', CarroApi.getProductos);
+    // Crear una nueva Producto
+    restApi.post('/api/producto', CarroApi.setProducto);
+    // Modificar los datos de una Producto
+    restApi.put('/api/producto/:producto_id', CarroApi.updateProducto);
+    // Borrar una Producto
+    restApi.delete('/api/producto/:producto_id', CarroApi.removeProducto);
+
+}; 
