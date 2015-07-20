@@ -1,36 +1,27 @@
 {
-  "name": "angoose-demo",
-  "version": "0.0.1",
-  "description": "Angoose Demo",
-  "main": "index.js",
+  "name": "projectsrjv",
+  "version": "1.0.0",
+  "description": "Project SRJV",
+  "main": "server.js",
   "scripts": {
-    "test": "grunt test"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
   },
   "repository": {
     "type": "git",
-    "url": "git://github.com/tjworks/angoose-demo.git"
+    "url": "git+https://wMercadoJ@github.com/wMercadoJ/AngularJS.git"
   },
-  "keywords": [
-    "angoose",
-    "demo"
-  ],
-  "author": "tjworks",
-  "license": "BSD-2-Clause",
+  "author": "PTANG",
+  "license": "MIT",
   "bugs": {
-    "url": "https://github.com/tjworks/angoose-demo/issues"
+    "url": "https://github.com/wMercadoJ/AngularJS/issues"
   },
-  "devDependencies": {
-    "request": "*",
-    "node-mocks-http": "*",
-    "q": "*"
-    
-  },
+  "homepage": "https://github.com/wMercadoJ/AngularJS#readme",
   "dependencies": {
-    
-    "express": "3.10.4",
-    "underscore": "*",
-    "log4js":"*",
-    "angoose": "0.3.11",
-    "should":"*"
+    "express": "~4.0.0",
+    "morgan": "~1.0.0",
+    "mongoose": "~4.0.7",
+    "body-parser": "~1.0.0",
+    "method-override": "~1.0.0"
   }
 }
