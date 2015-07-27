@@ -3,7 +3,7 @@ angular.module('mainApp.navBar', ['ngSanitize', 'ngRoute'])
 
     .controller('navBarCtrl', function ($scope) {
         //=== Variables ===//
-        $scope.role = "Admin";
+        $scope.role = "Almacenes";
         $scope.affixed = 'top';
         $scope.search = {
             show: true,
@@ -12,7 +12,7 @@ angular.module('mainApp.navBar', ['ngSanitize', 'ngRoute'])
         $scope.brand = "<span class='glyphicon glyphicon-home'></span> Inicio";
         $scope.inverse = true;
         $scope.now = new Date();
-        $scope.role = "Admin";
+        $scope.role = "Almacenes";
         if ($scope.role == "Admin") {
             $scope.menus = [{
                 title: "Planillas de Salida",

@@ -1,37 +1,38 @@
 /*--HEADER--*/
 .navbar {
-	margin-bottom: 0;
-	float: right;
+    margin-bottom: 0;
+    float: right;
 }
 
 .jumbotron {
-	background: #00324D;
-	color: #7CA4AE;
-	padding: 0.5px 0;
-	padding-top:70px;
+    background: #00324D;
+    color: #7CA4AE;
+    padding: 0.5px 0;
+    padding-top: 70px;
 }
 
 .jumbotron .titulo-pagina {
-	font-size: 35px;
+    font-size: 35px;
 }
 
 /* --POST--*/
 .main {
-	margin-top: 20px;
-	margin-bottom: 20px;
+    margin-top: 20px;
+    margin-bottom: 90px;
 }
 
 aside {
-	background: #DCE0E6;
+    background: #DCE0E6;
 }
+
 .post {
-	padding-bottom: 20px;
-	margin-bottom: 20px;
-	border-bottom: 1px solid #999;
+    padding-bottom: 20px;
+    margin-bottom: 20px;
+    border-bottom: 1px solid #999;
 }
 
 .post-title a {
-	color: #333;
+    color: #333;
 }
 
 /*.post .thumb {
@@ -44,12 +45,12 @@ aside {
 }*/
 
 .post .contenedor {
-	width: 100%;
+    width: 100%;
 }
 
 .navbar .btn {
-	background: #2B4E72;
-	color: #fff;
+    background: #2B4E72;
+    color: #fff;
 }
 
 /* --Media Querie--*/
@@ -62,13 +63,33 @@ aside {
 }*/
 
 footer {
-	background: #61AE24;
-	color: #C1C6A6;
+    background: #d8dfdd;
+    color: #49595a;
 }
 
-.fill{
-	 width:96%;
-	 height:100%;
-	 min-height:100%;
-	 padding:10px;
- }
+p.small {
+    line-height: 18px;
+}
+
+.fill {
+    width: 96%;
+    height: 100%;
+    min-height: 100%;
+    padding: 10px;
+}
+
+.table > tbody > tr > td {
+    vertical-align: middle;
+}
+
+#info {
+    margin: 65px auto 0;
+    color: #49595a;
+    font-size: 12px;
+    text-shadow: 0 1px 0 rgba(255, 255, 255, 0.7);
+    text-align: center;
+}
+
+#info a {
+    color: inherit;
+}
