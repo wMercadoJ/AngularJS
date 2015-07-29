@@ -1,6 +1,7 @@
 var Carro = require('./modelo/modeloCarro');
 var Producto = require('./modelo/modeloProducto');
 var schemaRestAPI = require ('./restAPI/schemaRestAPI');
+var productoRestAPI = require ('./restAPI/productoRestAPI');
 
 module.exports = function(restApi) {
 
@@ -17,16 +18,16 @@ module.exports = function(restApi) {
 
 
     // devolver todos los Productos
-    restApi.get('/api/producto', schemaRestAPI.getProductos);
+    restApi.get('/api/producto', productoRestAPI.getProductos);
     // devolver a un Producto
-    restApi.get('/api/producto/:id', schemaRestAPI.getProducto);
+    restApi.get('/api/producto/:id', productoRestAPI.getProducto);
     // devolver a un Producto
-    restApi.get('/api/productoCod/:codigo', schemaRestAPI.getProductoByCodigo);
+    restApi.get('/api/productoCod/:codigo', productoRestAPI.getProductoByCodigo);
     // Crear una nueva Producto
-    restApi.post('/api/producto', schemaRestAPI.setProducto);
+    restApi.post('/api/producto', productoRestAPI.setProducto);
     // Modificar los datos de una Producto
-    restApi.put('/api/producto/:producto_id', schemaRestAPI.updateProducto);
+    restApi.put('/api/producto/:producto_id', productoRestAPI.updateProducto);
     // Borrar una Producto
-    restApi.delete('/api/producto/:producto_id', schemaRestAPI.removeProducto);
+    restApi.delete('/api/producto/:producto_id', productoRestAPI.removeProducto);
 
 }; 

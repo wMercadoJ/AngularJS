@@ -12,7 +12,7 @@ angular.module('mainApp.navBar', ['ngSanitize', 'ngRoute'])
         $scope.brand = "<span class='glyphicon glyphicon-home'></span> Inicio";
         $scope.inverse = true;
         $scope.now = new Date();
-        $scope.role = "Almacenes";
+        $scope.role = "Admin";
         if ($scope.role == "Admin") {
             $scope.menus = [{
                 title: "Planillas de Salida",
